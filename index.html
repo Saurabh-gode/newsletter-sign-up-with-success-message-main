@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+  <main class="wrapper">
+    <section class="imgSection">
+      <div class="imgContainer">
+        <picture>
+          <source media="(min-width: 500px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+
+          <img src="./assets/images/illustration-sign-up-mobile.svg" alt="illustration-sign-up" />
+          <!-- <img src="./assets/images/illustration-sign-up-desktop.svg" /> -->
+        </picture>
+      </div>
+    </section>
+    <section class="textSection">
+      <div class="textContainer">
+        <h1>Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <div style="width: 100%;">
+          <ul class="ul-flex">
+            <li class="li-flex">
+              <div class="li-icon"><img src="./assets/images/icon-list.svg" /></div>
+              <span class="li-text">Product discovery and building what <br /> matters</span>
+
+            </li>
+            <li class="li-flex">
+              <div class="li-icon"><img src="./assets/images/icon-list.svg" /></div>
+              <span class="li-text">Measuring to ensure updates are a <br /> success</span>
+            </li>
+            <li class="li-flex">
+              <div class="li-icon"><img src="./assets/images/icon-list.svg" /></div>
+              <span class="li-text">And much more!</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="action-container">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <label for="email_address" class="action-label">Email address</label>
+          <span for="email_address" class="action-label-err" id="err-label"></span>
+        </div>
+        <input type="email" name="email_address" id="email_address" class="action-input"
+          placeholder="email@company.com" />
+        <button class="action-btn" id="action-btn">Subscribe to monthly newsletter</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/Saurabh-gode" target="_blank">Saurabh Gode</a>.
+  </div>
+
+  <script type="text/javascript">
+    const inputVal = document.getElementById('err-label');
+    const btn = document.getElementById('action-btn');
+    const email = document.getElementById('email_address').value;
+
+    btn.addEventListener('click', (e) => {
+      let validation = email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
+      if (validation) {
+        inputVal.innerText = ''
+      } else {
+        inputVal.innerText = 'Valid email required'
+      }
+
+    }, false)
+
+  </script>
+
+</body>
+
+</html>
